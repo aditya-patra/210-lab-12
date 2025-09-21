@@ -24,6 +24,17 @@ int main() {
         for(int i = 0; i < SIZE; i++) {
             fin >> numbers[i];
         }
+        // print temperatures
+        cout << "Analyzing daily average temperature in month of " << month;
+        cout << "\nNumber of days recorded: " << numbers.size();
+        cout << "\nAverage temperature per day: ";
+        for(int i = 0; i < SIZE; i++) {
+            cout << numbers.at(i) << ", ";
+        }
+        cout << "\nIncrease in temperature during month: " << numbers.back() - numbers.front();
+        cout << "\nMinimum Temperature: " << *min_element(numbers.begin(), numbers.end());
+        cout << "\nMaximum Temperature: " << *max_element(numbers.begin(), numbers.end());
+        cout << "\nAverage Temperature: " << accumulate(numbers.begin(), numbers.end(), 0) / numbers.size();
         fin.close( );
     }
     else
