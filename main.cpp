@@ -16,7 +16,7 @@ using namespace std;
 int main() {
     const int SIZE = 31;
     ifstream fin;
-    array<int, SIZE> numbers;
+    array<double, SIZE> numbers;
     string month;
     fin.open("array_info.txt");
     if (fin.good( )) {
@@ -35,6 +35,8 @@ int main() {
         cout << "\nMinimum Temperature: " << *min_element(numbers.begin(), numbers.end());
         cout << "\nMaximum Temperature: " << *max_element(numbers.begin(), numbers.end());
         cout << "\nAverage Temperature: " << accumulate(numbers.begin(), numbers.end(), 0) / numbers.size();
+        cout << "\nDays over 15 C: " << count_if(numbers.begin(), numbers.end(), [](int t){ return t >= 15; });
+        cout << "\nDays under 15 C: " << count_if(numbers.begin(), numbers.end(), [](int t){ return t < 15; });
         fin.close( );
     }
     else
